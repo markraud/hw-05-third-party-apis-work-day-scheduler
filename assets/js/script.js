@@ -1,6 +1,6 @@
 // A $( document ).ready() block.
 $( document ).ready(function() {
-    console.log( "ready!" );
+    // console.log( "ready!" );
     var currentDate = moment();
     $("#currentDay").text(currentDate.format("dddd, MMMM Do"));
 
@@ -12,18 +12,23 @@ $( document ).ready(function() {
         var givenHour = $(this).parent().attr("id");
         // create a variable to represent the task info
         var taskInfo = $(this).siblings(".text").val();
-        console.log(givenHour);
-        console.log(taskInfo);
+        // console.log(givenHour);
+        // console.log(taskInfo);
         // save info into local storage
         localStorage.setItem(givenHour, taskInfo);
     })
 
     //write a function that loads the taskInfo from localStorage after refresh
     function getTaskInfo () {
-        var storedGivenHour = localStorage.getItem("givenHour");
-        var storedTaskInfo = localStorage.getItem("taskInfo");
-        console.log(storedGivenHour);
-        console.log(storedTaskInfo);
+        var localKey =['hr-9','hr-10','hr-11','hr-12','hr-13','hr-14','hr-15','hr-16','hr-17'];
+        for (i = 0; i < localKey.length; i++) {
+            if (localStorage.getItem(localKey[i])) {   // if there is info in local storage grab it
+                console.log(localStorage.getItem(localKey[i]));
+            $('#'+i).append(localStorage.getItem(localKey[i]));
+            }
+        }
+
+        
     }
 
 
