@@ -4,6 +4,8 @@ $( document ).ready(function() {
     var currentDate = moment();
     $("#currentDay").text(currentDate.format("dddd, MMMM Do"));
 
+    var taskArray =[];
+
     //listen for click events
     $(".saveBtn").on("click", function(){
         // create a variable to represent the given hour
@@ -16,48 +18,41 @@ $( document ).ready(function() {
         localStorage.setItem(givenHour, taskInfo);
     })
 
-        // write a function that changes color base on current hour
-        function colorTimeblocks(){
-            var currentTime = moment().hours();
-            //var currentTime = 11;
-            console.log(currentTime); 
-            $(".time-block").each(function(){
-                //figure out the hour of each block
-                var blockHour = $(this).attr("id").split("-");
-                blockHour = parseInt(blockHour[1]);
-                console.log(blockHour);
-                //check the time and compare using if statement
-                if (blockHour < currentTime){
-                    //change the color to add class for past $(this).addClass
-                    $(this).addClass("past");
-                }else if (blockHour === currentTime) {
-                    // add class for present
-                    $(this).addClass("present");
-                }else {
-                    // add class for future
-                    $(this).addClass("future");
-                }
-            })
-        }
+    //write a function that loads the taskInfo from localStorage after refresh
+    function getTaskInfo () {
+        var storedGivenHour = localStorage.getItem("givenHour");
+        var storedTaskInfo = localStorage.getItem("taskInfo");
+        console.log(storedGivenHour);
+        console.log(storedTaskInfo);
+    }
+
+
+    // write a function that changes color base on current hour
+    function colorTimeblocks(){
+        var currentTime = moment().hours();
+        //var currentTime = 11;
+        //console.log(currentTime); 
+        $(".time-block").each(function(){
+            //figure out the hour of each block
+            var blockHour = $(this).attr("id").split("-");
+            blockHour = parseInt(blockHour[1]);
+            //console.log(blockHour);
+            //check the time and compare using if statement
+            if (blockHour < currentTime){
+                //change the color to add class for past $(this).addClass
+                $(this).addClass("past");
+            }else if (blockHour === currentTime) {
+                // add class for present
+                $(this).addClass("present");
+            }else {
+                // add class for future
+                $(this).addClass("future");
+            }
+        })
+    }
 
     colorTimeblocks();
+    getTaskInfo ();
     
 });
 
-
-
-
-
-
-
-// make task area show different colors based on hour of the day
-// var currentTime = moment().hour();
-// console.log(currentTime); 
-
-
-
-
-// click save btn to save inserted text into local storage using taskInfo
-// $(".saveBtn").click(function() { 
-
-// });
