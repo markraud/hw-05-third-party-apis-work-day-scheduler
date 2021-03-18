@@ -10,6 +10,7 @@ $( document ).ready(function() {
     $(".saveBtn").on("click", function(){
         // create a variable to represent the given hour
         var givenHour = $(this).parent().attr("id");
+        //console.log(givenHour);
         // create a variable to represent the task info
         var taskInfo = $(this).siblings(".text").val();
         // console.log(givenHour);
@@ -23,12 +24,12 @@ $( document ).ready(function() {
         var localKey =['hr-9','hr-10','hr-11','hr-12','hr-13','hr-14','hr-15','hr-16','hr-17'];
         for (i = 0; i < localKey.length; i++) {
             if (localStorage.getItem(localKey[i])) {   // if there is info in local storage grab it
-                console.log(localStorage.getItem(localKey[i]));
-            $('#'+i).append(localStorage.getItem(localKey[i]));
+                // console.log(localKey[i]);  
+                // console.log(localStorage.getItem(localKey[i])); 
+                //inject the stored values into the DOM
+                $(('#' + localKey[i])).children().next().val(localStorage.getItem(localKey[i]));
             }
         }
-
-        
     }
 
 
@@ -56,8 +57,8 @@ $( document ).ready(function() {
         })
     }
 
-    colorTimeblocks();
     getTaskInfo ();
-    
+    colorTimeblocks();
+        
 });
 
