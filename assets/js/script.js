@@ -15,38 +15,37 @@ $( document ).ready(function() {
         // save info into local storage
         localStorage.setItem(givenHour, taskInfo);
     })
+
+        // write a function that changes color base on current hour
+        function colorTimeblocks(){
+            var currentTime = moment().hours();
+            //var currentTime = 11;
+            console.log(currentTime); 
+            $(".time-block").each(function(){
+                //figure out the hour of each block
+                var blockHour = $(this).attr("id").split("-");
+                blockHour = parseInt(blockHour[1]);
+                console.log(blockHour);
+                //check the time and compare using if statement
+                if (blockHour < currentTime){
+                    //change the color to add class for past $(this).addClass
+                    $(this).addClass("past");
+                }else if (blockHour === currentTime) {
+                    // add class for present
+                    $(this).addClass("present");
+                }else {
+                    // add class for future
+                    $(this).addClass("future");
+                }
+            })
+        }
+
+    colorTimeblocks();
     
 });
 
 
-// write a function that changes color base on current hour
-function colorTimeblocks(){
-    var currentTime = moment().hours();
-    console.log(currentTime); 
-    $(".time-block").each(function(){
-        //figure out the hour of each block
-        var blockHour = $(this).attr("id").split("-");
-        blockHour = parseInt(blockHour[1]);
-        console.log(blockHour);
-        //check the time and compare using if statement
-        if (blockHour < currentTime){
-            //change the color to add class for past $(this).addClass
 
-        }else if (blockHour === currentTime) {
-            // add class for present
-        
-        }else {
-            // add class for future
-        
-        }
-
-        }
-
-        }
-    })
-}
-
-colorTimeblocks();
 
 
 
