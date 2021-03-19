@@ -9,6 +9,8 @@ The website is built using the following:
 1. HTML, CSS & JavaScript
 2. jQuery
 3. Bootstrap 
+4. Moment.js
+
 
 
 #### Links:
@@ -29,5 +31,4 @@ The website is built using the following:
 
 
 #### Summary:
-This homework taught me about traversing the DOM along with inserting HTML elements and text.  I also learned how to build and style a webpage using the Bootstrap framework.
-  
+This homework taught me about traversing the DOM along with inserting HTML elements and text.  I also learned how to build and style a webpage using the Bootstrap framework and how to use Moment.js.
