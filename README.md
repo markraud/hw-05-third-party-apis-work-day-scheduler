@@ -29,6 +29,14 @@ The website is built using the following:
 
 ![End](assets/images/Screenshot-3.jpg "End")
 
+#### Contact Info:
+Built by Mark Raudenbush
+markraud@hotmail.com
+- [My LinkedIn](https://www.linkedin.com/in/markraudenbush)
+- [My GitHub](https://github.com/markraud?tab=stars)
+
+#### License:
+The MIT License (MIT)
 
 #### Summary:
 This homework taught me about traversing the DOM along with inserting HTML elements and text.  I also learned how to build and style a webpage using the Bootstrap framework and how to use Moment.js.
